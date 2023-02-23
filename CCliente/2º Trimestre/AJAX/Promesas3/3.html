@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    * {
+      font-family: Comic Sans MS;
+    }
+
+    table,
+    tr,
+    td,
+    th {
+      border: 3px solid black;
+    }
+  </style>
+  <!-- 
+
+    3. Escolle unha API do repositorio con APIs públicas. Crea unha páxina web similar á
+    do exercicio anterior con un formulario para mostrar a información solicitada sen
+    recargar a páxina. Escolle unha API que conteña imaxes, para mostralas tamén por
+    pantalla. Fai un deseño adecuado ao tema da páxina.
+
+     -->
+  <h1>Selector de Amiibos</h1>
+  <label for="ID">Elige un Amiibo:</label>
+  <input type="text" id="amiiboName" name="amiiboName" />
+  <input name="buscar" type="submit" value="Buscar" id="buscador" /><br><br>
+
+</body>
+
+<script>
+  let url = "https://www.amiiboapi.com/api/amiibo/?name=";
+  let boton = document.getElementById("buscador");
+
+  boton.addEventListener("click", () => {
+    let amiiboName = document.getElementById("amiiboName").value;
+    let newURL = url + amiiboName;
+    if (document.body.querySelector("h2")) {
+      document.body.querySelector("h2").remove();
+    } else if (document.body.querySelector("table")) {
+      document.body.querySelector("table").remove();
+    }
+    fetch(newURL)
+      .then((response) => {
+        if (response.ok) return response.json();
+        return Promise.reject(response);
+      }).then((data) => {
+        let tabla = document.createElement("table");
+        let thead = document.createElement("thead");
+        let th1 = document.createElement("th");
+        th1.innerHTML = "Character";
+        let th2 = document.createElement("th");
+        th2.innerHTML = "AmiiboSeries";
+        let th3 = document.createElement("th");
+        th3.innerHTML = "Image";
+        document.body.append(tabla);
+        tabla.append(thead);
+        thead.append(th1);
+        thead.append(th2);
+        thead.append(th3);
+        let tbody = document.createElement("tbody");
+        tabla.append(tbody);
+        let tr = document.createElement("tr");
+        let tdCharacter = document.createElement("td");
+        let tdAmiiboSeries = document.createElement("td");
+        let tdImg = document.createElement("td");
+        let img = document.createElement("img");
+        img.src = data.amiibo[0].image;
+        tdCharacter.innerHTML = data.amiibo[0].character;
+        tdAmiiboSeries.innerHTML = data.amiibo[0].amiiboSeries;
+        tdImg.append(img);
+        tbody.append(tr);
+        tr.append(tdCharacter, tdAmiiboSeries, tdImg)
+
+      }, () => {
+        let h2Err = document.createElement("h2");
+        h2Err.innerHTML = "Este personaje no tiene amiibo";
+        document.body.append(h2Err);
+      })
+
+  })
+
+
+</script>
+
+</html>

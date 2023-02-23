@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/action_page.php">
+        <label for="tlf">Tlf:</label>
+        <input type="text" id="tlf" name="tlf" placeholder="Phone number"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+
+    <script>
+        /*
+            Imaxina que tes que crear unha páxina web básica para realizar pedidos (do que
+            queiras).
+            Como simulación da base de datos, crea un ficheiro JSON para almacenar a
+            información dos clientes e pedidos (simularían a táboa clientes e a táboa pedidos).
+            Dos clientes vaise gardar o número de teléfono, o enderezo e o pedido típico, que
+            será unha descrición corta. Dos pedidos gardarase a información do teléfono do
+            cliente e a descrición do pedido.
+            Crea un formulario onde apareza unha caixa de texto para introducir o teléfono e un
+            botón, de tal forma que ao pulsar o botón aparezan os datos do cliente asociados ao
+            teléfono (pedido e enderezo). Ademais, cando aparezan os datos do cliente tamén
+            se mostrará un novo formulario con unha caixa de texto que conteña a descrición do
+            32
+            AJAX
+            pedido típico do cliente e un botón “Realizar pedido”. O cliente poderá modificar a
+            descrición do pedido e confirmará o pedido pulsando o botón “Realizar pedido”. Isto
+            fará que os datos do novo pedido se garden no ficheiro JSON.
+        */
+
+        const newClient = {
+            name: "nome",
+            descrip: "descricion",
+        }
+        async function procesarProduto() {
+            try {
+                let response = await fetch("http://localhost:3000/produtos", {
+                    method: "POST",
+                    headers: {
+                        "Content-type": "application/json;charset=utf-8",
+                    },
+                    body: JSON.stringify(newProduct),
+                });
+                let data = await response.json();
+                console.log(data);
+            } catch (error) {
+                return error;
+            }
+        }
+        procesarProduto();
+
+    </script>
+
+</body>
+
+</html>

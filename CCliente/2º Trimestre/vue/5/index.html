@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body id="app">
+    <!-- 2. Crea unha páxina web con dúas caixas de texto para introducir números a sumar e
+un elemento para mostrar o resultado. Cada vez que se modifique unha das caixas
+de texto, debe actualizarse e mostrarse o resultado da suma dos dous números.
+Ademais, unha vez obtido o resultado da suma, debe mostrarse tamén na páxina
+web se o resultado é un número par ou impar. -->
+    <input type="text" id="n1" v-model="n1" style="text-align:center">
+    +
+    <input type="text" id="n2" v-model="n2" style="text-align:center">
+    =
+    <span>{{resultado}}</span><br><br>
+
+    <span>{{isPar}}</span>
+
+</body>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="script.js"></script>
+
+</html>

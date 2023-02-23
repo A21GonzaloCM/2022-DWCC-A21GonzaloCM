@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="" alt="">
+    <script>
+        /*
+        2. Dado o seguinte código, ¿como debe chamarse á función wait para usar o resultado
+        da promesa que devolve dentro de f? 
+        */
+
+        async function wait() {
+            await new Promise(resolve => setTimeout(resolve, 3000));
+            return 10;
+        }
+
+        function f() {
+            // Recorda, aquí non se pode usar "await"
+            // ¿que escribir aquí?  
+            wait().then((data) => { console.log(data); })
+        }
+        f();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Buscador de posts</h1>
+  <label for="ID">Introduce o ID do usuario:</label>
+  <input type="number" id="ID" name="ID" min="1" max="10" />
+  <input name="buscar" type="submit" value="Buscar" id="buscador" />
+</body>
+<script>
+  /*
+      2. Neste exercicio vaise usar a API https://jsonplaceholder.typicode.com/. Esta API
+      contén, entre outras cousas, información falsa de posts e comentarios. Debes
+      elaborar unha páxina web que conteña un formulario con un campo input, para
+      introducir o id do usuario (un número entre 1 e 10), e un botón. Ao pulsar o botón,
+      debe mostrarse nunha táboa toda a información dos posts do usuario que ten o id
+      indicado no formulario, sen recargar a páxina web. Por exemplo, para o usuario con
+      id = 1, a url de consulta será https://jsonplaceholder.typicode.com/posts?userId=1.
+  */
+  let url = "https://jsonplaceholder.typicode.com/posts?userId=";
+  let boton = document.getElementById("buscador");
+  boton.addEventListener("click", () => {
+    let id = document.getElementById("ID").value;
+    let newURL = url + id;
+    fetch(newURL)
+      .then((response) => {
+        if (response.ok) return response.json();
+        return Promise.reject(response);
+      })
+      .then((data) => {
+        console.log(data);
+        let tabla = document.createElement("table");
+        let thead = document.createElement("thead");
+        let th1 = document.createElement("th");
+        th1.innerHTML = "ID";
+        let th2 = document.createElement("th");
+        th2.innerHTML = "Title";
+        let th3 = document.createElement("th");
+        th3.innerHTML = "Message";
+        document.body.append(tabla);
+        tabla.append(thead);
+        thead.append(th1);
+        thead.append(th2);
+        thead.append(th3);
+        let tbody = document.createElement("tbody");
+        tabla.append(tbody);
+        for (const post of data) {
+          let tr = document.createElement("tr");
+          let tdID = document.createElement("td");
+          let tdTitle = document.createElement("td");
+          let tdMessage = document.createElement("td");
+          tdID.innerHTML = post.id;
+          tdTitle.innerHTML = post.title;
+          tdMessage.innerHTML = post.body;
+          tbody.append(tr);
+          tr.append(tdID, tdTitle, tdMessage)
+        }
+
+      });
+
+  });
+</script>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        * {
+            font-family: Comic Sans MS;
+            box-sizing: border-box;
+        }
+
+        #divinfo {
+            background-color: rgb(187, 167, 144);
+            height: 30px;
+            text-align: center;
+            border-radius: 10px;
+            margin: 3px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4px;
+        }
+
+        #map {
+            height: 950px;
+            width: 65%;
+            border: 3px solid rgba(100, 83, 44, 0.628);
+        }
+
+        #aside-section {
+            height: 950px;
+            width: 35%;
+            background-color: rgb(173, 146, 112);
+            border: 3px solid rgba(100, 83, 44, 0.628);
+        }
+
+        #container {
+            display: flex;
+        }
+
+        #cbutton {
+            background-color: rgba(139, 135, 130, 0.814);
+            color: white;
+            border-radius: 10px;
+            height: 25px;
+
+        }
+    </style>
+    <div id="container">
+
+        <div id="aside-section">
+
+        </div>
+        <div id="map"></div>
+    </div>
+
+
+
+    <script defer src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+    <script defer src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    /*
+    1. Crea unha función á que se lle pase un parámetro e que devolva unha promesa. A
+    promesa debe resolverse despois de tres segundos dende que se chamou á función
+    e debe devolver o parámetro no resultado.
+    */
+
+    function example(data) {
+      let promise = new Promise(function (resolve, reject) {
+        setTimeout(function () {
+          resolve(data);
+        }, 3000);
+      });
+      return promise;
+    }
+    example("hola").then((success) => console.log(success)),
+      (fail) => console.log(fail);
+  </script>
+</html>

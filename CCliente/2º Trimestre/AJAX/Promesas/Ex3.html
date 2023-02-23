@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    /*
+    3. ¿Cal é o resultado do seguinte código?
+    */
+    let promise = new Promise(function (resolve, reject) {
+      resolve(1);
+      setTimeout(() => resolve(2), 1000);
+    });
+    promise.then(console.log);
+
+    //Devolve "1" porque a promesa resolvese na primeira liña (liña 15) e as promesas so se poden resolver unha vez;
+  </script>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style type="text/css">
+    body {
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .tg {
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin-top: 100px;
+    }
+
+    .tg td {
+        border-color: black;
+        border-style: solid;
+        border-width: 1px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        overflow: hidden;
+        padding: 10px 5px;
+        word-break: normal;
+        width: 150px;
+        height: 150px;
+    }
+
+    .tg th {
+        border-color: black;
+        border-style: solid;
+        border-width: 1px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        overflow: hidden;
+        padding: 10px 5px;
+        word-break: normal;
+        width: 150px;
+        height: 150px;
+    }
+
+    .tg .tg-0lax {
+        text-align: left;
+        vertical-align: top
+    }
+
+    .cambio {
+        background-color: rgb(13, 13, 112);
+        border-color: rgb(77, 19, 19);
+    }
+</style>
+
+<body id="app">
+    <!-- 
+        1. Crea unha páxina web que teña un tableiro de dúas celas. Fai que ao pulsar sobre
+        cada cela cambie alternativamente o estilo da mesma, é dicir, que se engada ou
+        elimine unha clase CSS. Por exemplo, crea unha clase chamada “activa” e configura
+        unha cor de fondo e un borde diferentes dos establecidos por defecto. Ao pulsar en
+        cada cela debe engadirse ou eliminarse a clase “activa”.
+    -->
+    <table class="tg">
+
+        <tbody @click="change">
+            <tr>
+                <td class="tg-0lax" :class="{cambio: cambiado1}" id="1"></td>
+                <td class="tg-0lax" :class="{cambio: cambiado2}" id="2"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="script.js"></script>
+
+</html>

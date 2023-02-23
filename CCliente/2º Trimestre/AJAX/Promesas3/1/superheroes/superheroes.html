@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Our superheroes</title>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Faster+One"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header></header>
+
+    <section></section>
+
+    <script>
+      let superheroesJS;
+
+      fetch(
+        "https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json"
+      )
+        .then((response) => {
+          if (response.ok) return response.json();
+          return Promise.reject(response);
+        })
+        .then(function (superheroesJS) {
+          //creacion titulo h1
+          let titulo = document.createElement("h1");
+          titulo.innerHTML = superheroesJS.squadName;
+          document.body.children[0].append(titulo);
+          //creacion titulo h1
+
+          //creacion p hometown
+          let parrafo = document.createElement("p");
+          parrafo.innerHTML =
+            "Hometown: " +
+            superheroesJS.homeTown +
+            " // Formed: " +
+            superheroesJS.formed;
+
+          document.body.children[0].append(parrafo);
+          //creacion p hometown
+
+          //creacion articles
+          for (const superheroe of superheroesJS.members) {
+            let article = document.createElement("article");
+            document.body.children[1].append(article);
+            let h2 = document.createElement("h2");
+            h2.innerHTML = superheroe.name;
+            article.append(h2);
+            let secretIdentity = document.createElement("p");
+            secretIdentity.innerHTML =
+              "Secret Identity: " + superheroe.secretIdentity;
+            article.append(secretIdentity);
+            let age = document.createElement("p");
+            age.innerHTML = "Age: " + superheroe.age;
+            article.append(age);
+            let pSuperpowers = document.createElement("p");
+            pSuperpowers.innerHTML = "Superpowers: ";
+            article.append(pSuperpowers);
+            let ulSuperpowers = document.createElement("ul");
+            article.append(ulSuperpowers);
+            for (const power of superheroe.powers) {
+              let powerName = document.createElement("li");
+              powerName.innerHTML = power;
+              ulSuperpowers.append(powerName);
+            }
+            //creacion articles
+          }
+        });
+    </script>
+  </body>
+</html>

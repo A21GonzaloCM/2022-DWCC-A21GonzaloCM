@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+
+  <script>
+    /*
+    2. Crea unha función que reciba un parámetro. A función debe devolver sempre unha
+    promesa.
+    a. Se o parámetro non é un número, debe rexeitar a promesa inmediatamente e
+    devolver “erro”.
+    b. Se o parámetro é un número impar, debe resolver a promesa despois de 1
+    segundo e devolver “impar”.
+    c. Se o parámetro é un número par, debe rexeitar a promesa despois de 2
+    segundos e devoler “par”.
+    */
+
+    function example(parametro) {
+      let promise = new Promise(function (resolve, reject) {
+        if (isNaN(parametro)) {
+          reject(new Error("O parámetro non é un numero"));
+        } else {
+          if (parametro % 2 == 0) {
+            setTimeout(function () {
+              reject("par");
+            }, 2000);
+          } else if (parametro % 2 != 0) {
+            setTimeout(function () {
+              resolve("impar");
+            }, 1000);
+          }
+        }
+      });
+      return promise;
+    }
+
+    example(3).then((success) => console.log(success)),
+      (fail) => console.log(fail);
+    example(2).then(
+      (success) => console.log(success),
+      (fail) => console.log(fail)
+    );
+    example("a").then(
+      (success) => console.log(success),
+      (fail) => console.log(fail)
+    );
+  </script>
+</html>

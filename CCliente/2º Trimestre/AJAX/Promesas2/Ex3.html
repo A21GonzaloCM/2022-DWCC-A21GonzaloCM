@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+/*
+3. ¿Cal é a saída do seguinte código? ¿Por que?
+*/
+
+function job(state) {
+return new Promise(function (resolve, reject) {
+if (state) {
+resolve("success");
+} else {
+reject("error");
+}
+});
+}
+let promise = job(true);
+promise
+.then(function (data) {
+console.log(data);
+return job(false);
+})
+.catch(function (error) {
+console.log(error);
+return "Error caught";
+})
+.then(function (data) {
+console.log(data);
+return job(true);
+})
+.catch((error) => console.log(error))
+
+/*
+    Tras pasarlle true a job() a saida e success  co 1º then imprimese succes e forzase a saida "error"=>(impreso polo catch),
+    que e capturada polo catch e por eso se imprime "error caught" a saida do seguinte then seria succes pero non se imprime 
+    e ao non haber mais erros o último catch non ten que actuar.
+
+*/
+
+</script>
+</html>

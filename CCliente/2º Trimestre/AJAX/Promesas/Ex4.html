@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    /*
+            4. Engade o código á función delay(ms) de tal forma que devolva unha promesa que se
+            resolva despois de pasados os milisegundos indicados como parámetro:
+        */
+
+    function delay(ms) {
+      return new Promise(function (resolve, reject) {
+        /* 
+       setTimeout(function () {
+          resolve();
+        }, ms);
+
+        
+        Versión abreviada:
+        */
+        setTimeout(resolve, ms);
+      });
+    }
+    delay(3000).then(() => console.log("Mensaxe obtida despois de 3 segundos"));
+  </script>
+</html>

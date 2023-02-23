@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style type="text/css">
+    body {
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .tg {
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin-top: 100px;
+    }
+
+    .tg td {
+        border-color: black;
+        border-style: solid;
+        border-width: 1px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        overflow: hidden;
+        padding: 10px 5px;
+        word-break: normal;
+        width: 150px;
+        height: 150px;
+    }
+
+    .tg th {
+        border-color: black;
+        border-style: solid;
+        border-width: 1px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        overflow: hidden;
+        padding: 10px 5px;
+        word-break: normal;
+        width: 150px;
+        height: 150px;
+    }
+
+    .tg .tg-0lax {
+        text-align: left;
+        vertical-align: top
+    }
+
+    .cambio {
+        background-color: rgb(13, 13, 112);
+        border-color: rgb(77, 19, 19);
+    }
+</style>
+
+<body id="app">
+    <!-- 
+        Fai unha segunda versión do mesmo exercicio, aínda que esta vez só unha das
+        dúas celas pode ter a clase “activa” CSS. Configura a páxina para que ao pulsar
+        sobre unha cela que non ten a clase “activa” se lle engada e se elimine da outra
+        cela.
+    -->
+    <table class="tg">
+
+        <tbody @click="change">
+            <tr>
+                <td class="tg-0lax" :class="{cambio: cambiado1}" id="1"></td>
+                <td class="tg-0lax" :class="{cambio: cambiado2}" id="2"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="script.js"></script>
+
+</html>

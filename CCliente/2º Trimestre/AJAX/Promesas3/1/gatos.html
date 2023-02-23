@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    let gatos;
+
+    fetch(
+      "https://mdn.github.io/learning-area/javascript/oojs/tasks/json/sample.json"
+    )
+      .then((response) => {
+        if (response.ok) return response.json();
+        return Promise.reject(response);
+      })
+      .then(function (gatos) {
+        let cadea1 = "Os nomes dos gatos son ";
+        let cadea2 = "";
+        let numeroCrias = 0;
+        let criasMacho = 0;
+        let criasFemia = 0;
+
+        for (const gato in gatos) {
+          if (gato == 0) {
+            cadea1 += gatos[gato].name;
+          } else if (gatos[parseInt(gato) + 1] != undefined) {
+            cadea1 += ", " + gatos[gato].name;
+          } else {
+            cadea1 += " e " + gatos[gato].name + ".";
+          }
+        }
+
+        for (const gato of gatos) {
+          for (const crias of gato.kittens) {
+            if (crias.gender == "f") {
+              criasFemia++;
+            } else {
+              criasMacho++;
+            }
+          }
+          cadea2 =
+            "Hai " +
+            (criasFemia + criasMacho) +
+            " gatiños: " +
+            criasFemia +
+            " femias e " +
+            criasMacho +
+            " machos.";
+        }
+
+        console.log(cadea1);
+        console.log(cadea2);
+      });
+  </script>
+</html>
