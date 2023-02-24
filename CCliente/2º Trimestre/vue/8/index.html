@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<!-- 
+         Imaxina que queres realizar unha páxina web que mostre unha lista de tarefas
+        pendentes. Para este exercicio, crea dende JavaScript un array con tarefas, que
+        poden ser inicialmente unha cadea de texto. Para practicar o renderizado
+        condicional, crea unha páxina web que mostre un parágrafo “Non hai tarefas
+        pendentes” se o array coa lista de tarefas está baleiro e en caso contrario debería
+        amosar a lista de tarefas, aínda que esta parte completarase no seguinte apartado.
+-->
+
+    <div id="app">
+
+        <div v-if="tarefas==''">
+            Non hai tarefas pendentes
+        </div>
+        <div v-else>
+            {{tarefas}}
+        </div>
+
+    </div>
+
+
+
+
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script defer src="script.js"></script>
+</body>
+</html>

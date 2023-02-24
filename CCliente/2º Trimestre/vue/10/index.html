@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<!-- 
+    Crea unha páxina web que mostre unha lista de elementos (escolle ti o significado),
+    coas seguintes funcionalidades:
+    a. Deben mostrarse os elementos en forma de lista.
+    b. Deben poder engadirse novos elementos á lista.
+    c. Engade tamén un botón para mostrar/ocultar a lista. Fai que o texto deste
+    botón sexa “Mostrar lista” ou “Ocultar lista” dependendo de se a lista é visible
+    ou non.
+    d. Fai que ao pulsar sobre un elemento, se elimine da lista.
+-->
+
+    <div id="app">
+        <h1>Lista</h1>
+        <ul v-for="elemento in lista">
+            <li @click="borrar(lista)">
+                {{elemento}}
+            </li>
+
+        </ul>
+
+        <form @submit.prevent="add">
+            <input type="text" id="addElemento" name="addElemento" v-model="text">
+
+            <button>Añadir</button>
+
+        </form>
+
+
+    </div>
+
+
+
+
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script defer src="script.js"></script>
+</body>
+</html>
